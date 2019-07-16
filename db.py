@@ -4,6 +4,7 @@ import logging
 
 
 class Database:
+    """Database connection class."""
 
     def __init__(self, config):
         self.host = config.db_host

@@ -14,6 +14,3 @@ def main(request):
         result = db.run_query(query)
     result = f"{len(queries)} queries successfully executed."
     return result
-
-
-print(main('test'))
