@@ -10,8 +10,5 @@ def main(request):
     config = Config()
     db = Database(config)
     queries = read_sql(config.sql_folder)
-    results = []
-    for query in queries:
-        result = db.run_query(query)
-        results.append(result)
+    results = [db.run_query(query) for query in queries]
     return jsonify(results)

@@ -51,7 +51,7 @@ class Database:
         except pymysql.MySQLError as e:
             print(e)
         finally:
-            if self.conn:
+            if self.conn is not None:
                 self.conn.close()
                 self.conn = None
                 logging.info('Database connection closed.')
