@@ -34,17 +34,24 @@ class Database:
         try:
             self.open_connection()
             with self.conn.cursor() as cur:
-                records = []
-                cur.execute(query)
-                result = cur.fetchall()
-                for row in result:
-                    records.append(row)
-                cur.close()
-                return records
+                if 'SELECT' in query:
+                    records = []
+                    cur.execute(query)
+                    result = cur.fetchall()
+                    for row in result:
+                        records.append(row)
+                    cur.close()
+                    return records
+                else:
+                    result = cur.execute(query)
+                    self.conn.commit()
+                    affected = f"{cur.rowcount} rows affected."
+                    cur.close()
+                    return affected
         except pymysql.MySQLError as e:
             print(e)
         finally:
             if self.conn:
                 self.conn.close()
                 self.conn = None
-                print('Database connection closed.')
+                logging.info('Database connection closed.')

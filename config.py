@@ -1,5 +1,4 @@
 """Config values."""
-# from urllib.parse import urlparse
 from os import environ
 
 
