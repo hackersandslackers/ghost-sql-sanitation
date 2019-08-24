@@ -2,6 +2,9 @@ import sys
 import pymysql
 import logging
 
+logger = logging.getLogger('sql-hackers-blog')
+logger.setLevel(logging.INFO)
+
 
 class Database:
     """Database connection class."""
@@ -26,11 +29,10 @@ class Database:
         except pymysql.MySQLError as e:
             logging.error(e)
             sys.exit()
-        finally:
-            logging.info('Connection opened successfully.')
 
     def run_query(self, query):
         """Execute SQL query."""
+        logger.info(f"Running query: {query}")
         try:
             self.open_connection()
             with self.conn.cursor() as cur:
@@ -54,4 +56,3 @@ class Database:
             if self.conn is not None:
                 self.conn.close()
                 self.conn = None
-                logging.info('Database connection closed.')
