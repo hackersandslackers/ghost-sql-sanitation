@@ -19,16 +19,16 @@ class Database:
 
     def open_connection(self):
         """Connect to MySQL Database."""
-        try:
-            if self.conn is None:
+        if self.conn is None:
+            try:
                 self.conn = pymysql.connect(self.host,
                                             user=self.username,
                                             passwd=self.password,
                                             db=self.dbname,
                                             connect_timeout=5)
-        except pymysql.MySQLError as e:
-            logging.error(e)
-            sys.exit()
+            except pymysql.MySQLError as e:
+                logging.error(e)
+                sys.exit()
 
     def run_query(self, query):
         """Execute SQL query."""
