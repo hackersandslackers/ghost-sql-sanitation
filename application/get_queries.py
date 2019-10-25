@@ -9,7 +9,7 @@ def get_sql_files(folder):
     return files
 
 
-def read_sql(folder):
+def read_sql_queries(folder):
     """Read SQL query from .sql file."""
     files = get_sql_files(folder)
     queries = []
