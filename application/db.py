@@ -2,8 +2,7 @@ import sys
 import pymysql
 import logging
 
-logger = logging.getLogger('sql-hackers-blog')
-logger.setLevel(logging.INFO)
+logger = logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
 
 class Database:

@@ -2,7 +2,7 @@
 from flask import Flask, make_response, jsonify
 from .db import Database
 from config import Config
-from .get_queries import read_sql_queries
+from .queries import read_sql_queries
 
 
 def main(request):
