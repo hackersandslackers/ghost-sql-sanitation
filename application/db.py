@@ -11,6 +11,7 @@ class Database:
 
     engine = create_engine(db_uri,
                            connect_args={'sslmode': 'require'},
+                           ssl_args={'ssl_ca': ca_path},
                            echo=True)
     metadata = MetaData(bind=engine)
 
