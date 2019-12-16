@@ -7,7 +7,7 @@ from .queries import read_sql_queries
 
 def main(request):
     """Endpoint entry point."""
-    db = Database(db_uri)
+    db = Database()
     queries = read_sql_queries(sql_folder)
     results = [db.run_query(query) for query in queries]
     print(results)

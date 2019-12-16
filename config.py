@@ -9,5 +9,9 @@ db_name = environ.get('DATABASE_NAME')
 db_connector = 'mysql+pymysql'
 db_uri = f'{db_connector}://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
 
+db_cert = environ.get("DATABASE_CERT")
+db_pem = environ.get("DATABASE_PEM")
+db_key = environ.get("DATABASE_KEY")
+
 # SQL queries
 sql_folder = environ.get('SQL_FOLDER')

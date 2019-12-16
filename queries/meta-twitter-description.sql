@@ -1,5 +1,5 @@
 UPDATE
-	posts
+	posts_meta
 SET
 	twitter_description = custom_excerpt
 WHERE

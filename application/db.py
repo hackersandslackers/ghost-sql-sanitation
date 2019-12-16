@@ -1,6 +1,6 @@
 import logging
 from sqlalchemy import create_engine, MetaData
-from config import db_uri
+from config import db_uri, db_pem
 
 
 logger = logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
@@ -9,19 +9,22 @@ logger = logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 class Database:
     """Database connection class."""
 
-    engine = create_engine(db_uri,
-                           connect_args={'sslmode': 'require'},
-                           ssl_args={'ssl_ca': ca_path},
-                           echo=True)
-    metadata = MetaData(bind=engine)
+    def __init__(self):
+        self.engine = create_engine(db_uri,
+                                    connect_args={'ssl': {'ca': db_pem}},
+                                    echo=True)
+        self.metadata = MetaData(bind=self.engine)
 
-    @classmethod
-    def run_query(cls, query):
+    def run_query(self, query):
         """Execute SQL query."""
-        results = cls.engine.execute(query)
-        response = cls.__construct_response(len(results))
-        return response
+        print(query)
+        if 'SELECT' in query:
+            results = self.engine.execute(query).fetchall()
+            return self.__construct_response(len(results))
+        results = self.engine.execute(query)
+        return self.__construct_response(results.rowcount())
 
+    @staticmethod
     def __construct_response(num_rows):
         """Summarize results of an executed query."""
         return f'Modified {num_rows} rows.'
