@@ -22,7 +22,7 @@ class Database:
             results = self.engine.execute(query).fetchall()
             return self.__construct_response(len(results))
         results = self.engine.execute(query)
-        return self.__construct_response(results.rowcount())
+        return self.__construct_response(results.rowcount)
 
     @staticmethod
     def __construct_response(num_rows):

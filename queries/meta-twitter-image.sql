@@ -1,6 +1,8 @@
 UPDATE
+	posts,
 	posts_meta
 SET
-	twitter_image = feature_image
+	posts_meta.twitter_image = posts.feature_image
 WHERE
-	feature_image IS NOT NULL;
+	posts.feature_image IS NOT NULL
+	AND posts.id = posts_meta.post_id;
