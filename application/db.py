@@ -1,6 +1,5 @@
 import logging
 from sqlalchemy import create_engine, MetaData
-from config import db_uri, db_pem
 
 
 logger = logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
@@ -9,7 +8,7 @@ logger = logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 class Database:
     """Database connection class."""
 
-    def __init__(self):
+    def __init__(self, db_pem, db_uri):
         self.engine = create_engine(db_uri,
                                     connect_args={'ssl': {'ca': db_pem}},
                                     echo=True)
