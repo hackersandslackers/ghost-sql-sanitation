@@ -1,7 +1,9 @@
 UPDATE
-	posts
+	posts,
+	posts_meta
 SET
-	twitter_title = title
+	posts_meta.twitter_title = posts.title
 WHERE
-	twitter_title IS NULL
-	AND title IS NOT NULL;
+	posts_meta.twitter_title IS NULL
+	AND posts.title IS NOT NULL
+	AND posts.id = posts_meta.post_id;

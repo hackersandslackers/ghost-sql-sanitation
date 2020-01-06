@@ -1,7 +1,9 @@
 UPDATE
-	posts
+	posts,
+	posts_meta
 SET
-	meta_description = custom_excerpt
+	posts_meta.meta_description = posts.custom_excerpt
 WHERE
-	meta_description IS NULL
-	AND custom_excerpt IS NOT NULL;
+	posts_meta.meta_description IS NULL
+	AND posts.custom_excerpt IS NOT NULL
+	AND posts.id = posts_meta.post_id;;

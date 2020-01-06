@@ -1,7 +1,8 @@
 UPDATE
-	posts
+	posts,
+	posts_meta
 SET
-	twitter_description = custom_excerpt
+	posts_meta.twitter_description = posts.custom_excerpt
 WHERE
-	twitter_description IS NULL
-	AND custom_excerpt IS NOT NULL;
+	posts_meta.twitter_description IS NULL
+	AND posts.custom_excerpt IS NOT NULL;
