@@ -2,8 +2,6 @@ import logging
 from sqlalchemy import create_engine, MetaData
 
 
-logger = logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
-
 
 class Database:
     """Database connection class."""
@@ -27,3 +25,4 @@ class Database:
     def __construct_response(num_rows):
         """Summarize results of an executed query."""
         return f'Modified {num_rows} rows.'
+
