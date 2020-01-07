@@ -11,7 +11,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='Ghost Blog Data Sanitizer',
     version='1.0.0',
-    description='Sanitize Ghost Blog SQL data on a schedule to ensure content quality.',
+    description='Sanitize Ghost Blog SQL data to ensure content quality.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/hackersandslackers/ghost-sql-sanitation',

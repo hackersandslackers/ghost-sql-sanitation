@@ -13,6 +13,7 @@ class SQLFetcher:
         self.folder = folder
 
     def get_queries(self):
+        """Neatly package local queries to be run against your database."""
         files = self.__fetch_sql_files()
         sql = self.__read_sql_queries(files)
         query_collection = dict(zip(files, sql))
