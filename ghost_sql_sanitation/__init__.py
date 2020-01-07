@@ -10,10 +10,5 @@ def main(request):
     db = Database(db_pem, db_uri)
     fetcher = SQLFetcher(sql_folder)
     queries = fetcher.get_queries()
-    return execute_sql_queries(db, queries)
-
-
-def execute_sql_queries(db, queries):
-    """Execute locally stored queries against remote database."""
     results = db.run_query(queries)
-    return results
+    return make_response(jsonify(results), 200)
