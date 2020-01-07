@@ -1,5 +1,5 @@
 """Application entry point."""
-from application import main
+from ghost_sql_sanitation import main
 from flask import request
 
 if __name__ == '__main__':
