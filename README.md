@@ -25,6 +25,15 @@ $ pipenv update
 $ python3 main.py
 ```
 
+Installation via [Poetry](https://python-poetry.org/):
+
+```shell
+$ git clone https://github.com/hackersandslackers/bigquery-python-tutorial.git
+$ cd ghost-sql-sanitation
+$ poetry install
+$ poetry run
+```
+
 Alternatively, try installing via `setup.py`:
 
 ```shell
@@ -44,3 +53,8 @@ The following environment variables are required to run this script:
 * `DATABASE_PEM` _(optional)_: See above.
 * `DATABASE_KEY` _(optional)_: See above.
 * `SQL_FOLDER`: The local folder (in this repo) where your SQL files live.
+
+
+-----
+
+**Hackers and Slackers** tutorials are free of charge. If you found this tutorial helpful, a [small donation](https://www.buymeacoffee.com/hackersslackers) would be greatly appreciated to keep us in business. All proceeds go towards coffee, and all coffee goes towards more content.
