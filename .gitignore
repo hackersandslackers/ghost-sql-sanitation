@@ -109,3 +109,6 @@ venv.bak/
 postgres/
 queries/old
 archived
+
+# Idea
+.idea
