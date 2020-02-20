@@ -1,4 +1,4 @@
-"""Read sql files."""
+"""Read SQL files."""
 from sys import stdout
 from os import listdir
 from os.path import isfile, join

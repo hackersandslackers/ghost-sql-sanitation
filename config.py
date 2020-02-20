@@ -13,4 +13,4 @@ db_pem = environ.get("DATABASE_PEM")
 db_key = environ.get("DATABASE_KEY")
 
 # SQL queries
-sql_folder = environ.get('SQL_FOLDER')
+sql_folder = 'queries'
