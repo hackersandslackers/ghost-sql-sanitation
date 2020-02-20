@@ -1,4 +1,4 @@
-"""Setup."""
+"""Setup.py"""
 from os import path
 from setuptools import setup, find_packages
 from io import open
@@ -19,6 +19,7 @@ setup(
     author_email='toddbirchard@gmail.com',
     classifiers=[
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
     keywords='Ghost Blog SQL Python Automation',
     packages=find_packages(),

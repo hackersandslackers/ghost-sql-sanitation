@@ -1,4 +1,5 @@
 UPDATE
+    posts,
 	posts_meta
 SET
 	posts_meta.og_description = posts.custom_excerpt
