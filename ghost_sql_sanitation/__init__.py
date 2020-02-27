@@ -8,7 +8,7 @@ db = Database(db_pem, db_uri)
 
 
 def main(request):
-    """Endpoint entry point."""
+    """Script entry point."""
     app = Flask(__name__)
     with app.app_context():
         from .run import run_queries

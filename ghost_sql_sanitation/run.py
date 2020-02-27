@@ -5,6 +5,7 @@ from config import sql_folder
 
 
 def run_queries(db):
+    """Fetch and run all queries."""
     fetcher = SQLFetcher(sql_folder)
     queries = fetcher.get_queries()
     results = db.run_query(queries)
