@@ -4,7 +4,7 @@ from os import listdir
 from os.path import isfile, join
 from loguru import logger
 
-logger.add(stdout, format="{time} {message}", level="INFO")
+logger.add(stdout, format="{time} {message}", level="INFO", filter="queries")
 
 
 class SQLFetcher:

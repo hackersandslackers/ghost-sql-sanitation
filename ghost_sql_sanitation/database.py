@@ -2,7 +2,7 @@ from sys import stdout
 from sqlalchemy import create_engine, MetaData
 from loguru import logger
 
-logger.add(stdout, format="{time} {message}", level="INFO")
+logger.add(stdout, format="{time} {message}", level="INFO", filter="database")
 
 
 class Database:
@@ -25,9 +25,9 @@ class Database:
             results = self.engine.execute(v)
             affected_rows = results.rowcount
             logger.info(f'Modified {affected_rows} rows.')
-        return affected_rows
+        return self.__construct_response(affected_rows)
 
     @staticmethod
-    def __construct_response(num_rows):
+    def __construct_response(affected_rows):
         """Summarize results of an executed query."""
-        return f'Modified {num_rows} rows.'
+        return f'Modified {affected_rows} rows.'

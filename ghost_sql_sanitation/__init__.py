@@ -1,14 +1,16 @@
 """Appliction entry point."""
-from flask import Flask, make_response, jsonify
-from .database import Database
+from flask import Flask
 from config import db_pem, db_uri, sql_folder
-from .queries import SQLFetcher
+from .database import Database
+
+
+db = Database(db_pem, db_uri)
 
 
 def main(request):
     """Endpoint entry point."""
-    db = Database(db_pem, db_uri)
-    fetcher = SQLFetcher(sql_folder)
-    queries = fetcher.get_queries()
-    results = db.run_query(queries)
-    return make_response(jsonify(results), 200)
+    app = Flask(__name__)
+    with app.app_context():
+        from .run import run_queries
+
+        return run_queries(db)
